@@ -1,0 +1,43 @@
+main {
+  background-color: #eaeaea;
+  text-align: center;
+  height: 50pc;
+  font-family: 'League Spartan', sans-serif;
+  position: relative;
+}
+
+.animet {
+  top: 70%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  height: 200px;
+  width: 200px;
+}
+
+
+h1 {
+  margin-bottom: 50px;
+  margin-top: 80px;
+  font-size: 45px; /* Tamaño del texto en negrita */
+  font-weight: bold; /* Grosor del texto */
+  color: #0049ac; /* Color del texto azul */
+  font-family: 'League Spartan', sans-serif;
+}
+
+
+.esperando {
+  font-size: 30px; /* Tamaño del texto */
+  font-weight: bold; /* Texto en negrita */
+  color: black; /* Color del texto negro */
+  margin-bottom: 15px; /* Margen inferior entre los párrafos */
+  margin-top: 80px;
+
+}
+
+
+
+.btn {
+  color: #2f2f2f;
+  margin-top: 40px;
+  margin-left: -850px; /* Ajusta el valor según sea necesario */
+  margin-right: 850px;
+}

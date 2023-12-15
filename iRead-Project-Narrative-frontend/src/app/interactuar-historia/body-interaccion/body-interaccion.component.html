@@ -1,0 +1,132 @@
+<main>
+  <ng-container *ngIf="!isQuizCompleted">
+
+    <body>
+    <div class="card25" >
+      <div class="columna-izquierda" style="margin-left: 50px">
+        <!-- Contenido de la columna izquierda -->
+        <div class="cards-container-7">
+          <div class="card-7">
+            <img [src]="jsonDecodificado.questions[currentQuestion]?.lienzo" alt="lienzo">
+          </div>
+        </div>
+      </div>
+
+      <div class="columna-derecha">
+        <div class="fila-arriba">
+          <!-- Contenido de la fila superior de la columna derecha -->
+
+          <div class="card52 mt-2">
+            <div class="d-flex justify-content-between mt-1 mb-1">
+              <div class="image">
+                <img src="./assets/startup.png" width="70" alt="logo">
+              </div>
+              <div class="quiz-header">
+                <h4 class="italic-text"> Responde las preguntas...</h4>
+                <span class="italic-text"> Bienvenido {{nombreEstudiante}}!</span>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <div class="score">
+                <h5 class="italic-text" style="margin-right: 100px"> {{points}} Puntos</h5>
+              </div>
+              <div class="question-remain">
+                <span class="italic-text">Pregunta {{currentQuestion+1}} de {{questionList.length}}</span>
+              </div>
+              <div class="timer">
+                <h5 class="italic-text" style="margin-left: 100px">{{counter}} seg ⏰</h5>
+              </div>
+            </div>
+
+            <div class="progress mb-3" role="progressbar" aria-label="Default striped example" aria-valuenow="10"
+                 aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar progress-bar-striped" [ngStyle]="{'width':progress+'%'}"></div>
+            </div>
+
+            <div class="question">
+              <div class="card">
+                <h3>{{jsonDecodificado.questions[currentQuestion]?.questionText}}</h3>
+              </div>
+            </div>
+
+            <div class="options">
+              <ol>
+                <li *ngFor="let option of jsonDecodificado.questions[currentQuestion]?.options">
+                  <div (click)="selectOption(option)"
+                       [ngClass]="{'selected': option.selected, 'card': true, 'correct': option.correct}">
+                    {{option.text}}
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <div class="btnend mt-3 mb-3">
+              <button *ngIf="currentQuestion < 4" class="btn btn-pr2 mt-3" (click)="nextQuestion()">Siguiente</button>
+              <button *ngIf="currentQuestion >= 4" class="btn btn-pr mt-3" (click)="endQuiz()">FINALIZAR</button>
+            </div>
+          </div>
+
+
+          <div class="fila-arriba-der" style="margin-right: 100px">
+
+            <!-- Ayuda 1 -->
+            <div class="card panel2 mt-2" *ngIf="click1 == 0 && !hideButton1">
+              <button (click)="clickv1()" class="btn btn-secondary aa">Ayuda 1</button>
+            </div>
+
+            <div class="card panel23 mt-2" *ngIf="click1 === 1 && !hideButton1">
+              <button (click)="clickv1()" class="btn btn-pr aa">{{jsonDecodificado.questions[currentQuestion]?.palabraText[0] || 'No se registró'}}</button>
+              <div class="card-body panel-content">
+                <p>Significado: {{jsonDecodificado.questions[currentQuestion]?.significado[0] || 'No se registró'}}</p>
+              </div>
+            </div>
+
+            <!-- Ayuda 2 -->
+            <div class="card panel2 mt-2" *ngIf="click2 == 0 && !hideButton2">
+              <button (click)="clickv2()" class="btn btn-secondary aa">Ayuda 2</button>
+            </div>
+
+            <div class="card panel23 mt-2" *ngIf="click2 === 1 && !hideButton2">
+              <button (click)="clickv2()" class="btn btn-pr aa">{{jsonDecodificado.questions[currentQuestion]?.palabraText[1] || 'No se registró'}}</button>
+              <div class="card-body panel-content">
+                <p>Significado: {{jsonDecodificado.questions[currentQuestion]?.significado[1] || 'No se registró'}}</p>
+              </div>
+            </div>
+
+
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    </body>
+  </ng-container>
+
+
+
+
+  <ng-container *ngIf="isQuizCompleted">
+    <main class="main3">
+      <div class="card4">
+        <div class="row">
+          <div class="col-md-6 text-center">
+            <img class="img-fluid" src="./assets/ScoreEstudiante.jpg" alt="score-estudiante">
+          </div>
+          <div class="col-md-6">
+            <br>
+            <h2>Felicidades! <br> La evaluación ha terminado </h2>
+            <h3>Estos son tus resultados:</h3>
+            <h5> Total de preguntas formuladas: 5</h5>
+            <h5> Total de preguntas correctas: {{correctAnswer}}</h5>
+            <h5> Total de preguntas incorrectas: {{inCorrectAnswer}}</h5>
+            <h3> Tu puntaje: {{points}}/20 Puntos</h3>
+            <button routerLink="/interactua" class="btn btn-danger mt-5" >Salir</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </ng-container>
+</main>

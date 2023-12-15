@@ -1,0 +1,66 @@
+.main {
+  background-color: #eaeaea; /* Color de fondo gris */
+  text-align: center; /* Centra el texto */
+  padding: 120px; /* Espaciado interior del contenedor */
+  margin-top: -40px;
+  font-family: 'League Spartan', sans-serif;
+}
+
+
+
+.main h1 {
+  font-size: 55px; /* Tamaño del texto en negrita */
+  color: #0049ac; /* Color del texto azul */
+  margin-bottom: 40px;
+  font-weight: bolder;
+  font-family: 'League Spartan', sans-serif;
+}
+
+div.container1 {
+  font-size: 25px; /* Tamaño del texto en negrita */
+  color: #0049ac; /* Color del texto azul */
+  border-color: black;
+  background-color: #eaeaea; /* Color de fondo gris */
+  font-family: 'League Spartan', sans-serif;
+}
+
+.icon-grande {
+  font-size: 35px; /* Tamaño del icono, ajusta según tus necesidades */
+}
+
+.main p {
+
+  font-size: 25px; /* Tamaño del texto normal */
+  margin-bottom: 35px; /* Margen inferior */
+  font-family: 'League Spartan', sans-serif;
+
+}
+
+.btn-register, .btn-login {
+  background-color: #000; /* Color de fondo negro */
+  color: #fff; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  padding: 15px 30px; /* Espaciado interno del botón */
+  margin-bottom: 30px; /* Margen inferior */
+  margin-outside: 5px;
+  border-radius: 30px;
+  min-width: 15%;
+  font-size: x-large;
+  margin-top: -15px; /*no mover*/
+  font-family: 'League Spartan', sans-serif;
+}
+
+.btn-login {
+  background-color: #000; /* Puedes cambiar el color si lo deseas */
+  font-family: 'League Spartan', sans-serif;
+}
+
+.logo img {
+  width: 20%;
+  height: 10%;
+}
+
+mat-icon{
+  width: 3rcap;
+  height: 2.8rcap;
+}

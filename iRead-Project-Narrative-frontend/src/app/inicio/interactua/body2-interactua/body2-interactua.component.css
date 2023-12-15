@@ -1,0 +1,109 @@
+main {
+  background-color: #eaeaea; /* Color de fondo gris */
+  text-align: center; /* Centra el texto */
+  padding: 150px; /* Espaciado interior del contenedor */
+  font-family: 'League Spartan', sans-serif;
+}
+
+.main5 {
+  background-color: #eaeaea; /* Color de fondo gris */
+  text-align: center; /* Centra el texto */
+  padding: 1px; /* Espaciado interior del contenedor */
+  font-family: 'League Spartan', sans-serif;
+}
+
+main h1 {
+  font-size: 45px; /* Tamaño del texto en negrita */
+margin-top: -50px;
+  color: #0049ac; /* Color del texto azul */
+  margin-bottom: 40px;
+  font-weight: bolder;
+  font-family: 'League Spartan', sans-serif;
+}
+
+main p.recomendacion {
+  color: rgba(128, 128, 128, 0.691);
+}
+
+div.container1 {
+  font-size: 25px; /* Tamaño del texto en negrita */
+  color: #0049ac; /* Color del texto azul */
+  border-color: black;
+  background-color: #eaeaea; /* Color de fondo gris */
+  font-family: 'League Spartan', sans-serif;
+}
+
+.icon-grande {
+  font-size: 40px; /* Tamaño del icono, ajusta según tus necesidades */
+}
+
+
+main p {
+
+  font-size: 25px; /* Tamaño del texto normal */
+  margin-bottom: 40px; /* Margen inferior */
+  font-family: 'League Spartan', sans-serif;
+
+}
+
+
+logo img {
+  width: 20%;
+  height: 10%;
+}
+
+mat-icon{
+  width: 3rcap;
+  height: 2.8rcap;
+}
+
+.btn-orange {
+  background-color: #fd7900; /* Color de fondo naranja */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  padding: 15px 40px; /* Espaciado interno del botón */
+  font-size: 20px; /* Tamaño del texto del botón */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+  border-radius: 30px;
+}
+
+.btn-orange:hover {
+  background-color: #fd7900; /* Cambia el color de fondo al pasar sobre el botón */
+}
+
+button.btn-orange {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+.input-group input {
+  border: none;
+  text-align: center;
+  width: 20%;
+  padding: 15px;
+  font-size: 35px;
+  border-radius: 35px;
+  margin-bottom: 10px;
+}
+
+.input-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+
+.input-group input::placeholder {
+  text-align: center;
+  font-size: 30px; /* Cambia el tamaño del texto del placeholder */
+}
+
+.btn2 {
+  color: #333333;
+  margin-top: 40px;
+  margin-right: 1750px;
+
+}

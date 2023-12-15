@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/**********************DOCENTE-INICIO********************/
+
+.main {
+  background-color: #f2f2f2; /* Color de fondo gris */
+  text-align: center; /* Centra el texto */
+  padding: 100px; /* Espaciado interior del contenedor */
+  font-family: 'League Spartan', sans-serif;
+}
+
+.main h1 {
+  font-size: 36px; /* Tamaño del texto en negrita */
+  font-weight: bold; /* Grosor del texto */
+  color: #0049ac; /* Color del texto azul */
+  font-family: 'League Spartan', sans-serif;
+  margin-bottom: 50px;
+  margin-top: 20px;
+}
+
+.main h2 {
+  font-size: 36px; /* Tamaño del texto en negrita */
+  font-weight: bold; /* Grosor del texto */
+  color: #0049ac; /* Color del texto azul */
+  font-family: 'League Spartan', sans-serif;
+  margin-bottom: 40px;
+  margin-top:40px;
+}
+
+.main p {
+  font-size: 18px; /* Tamaño del texto normal */
+  margin-bottom: 20px; /* Margen inferior */
+}
+
+.btn-register, .btn-login {
+  background-color: #000; /* Color de fondo negro */
+  color: #fff; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  padding: 15px 30px; /* Espaciado interno del botón */
+  font-size: 18px; /* Tamaño del texto del botón */
+  margin-bottom: 20px; /* Margen inferior */
+  border-radius: 30px;
+}
+
+.btn-login {
+  background-color: #000; /* Puedes cambiar el color si lo deseas */
+}
+
+/**********************DOCENTE-INICIO********************/
+
+.btn-orange {
+  background-color: #fd7900;
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  padding: 15px 30px; /* Espaciado interno del botón */
+  font-size: 18px; /* Tamaño del texto del botón */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+  border-radius: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.btn-orange:hover {
+  background-color: #fd7900; /* Cambia el color de fondo al pasar sobre el botón */
+}
+
+/**********************INGRESO-HISTORIA********************/
+
+.back-button {
+  position: relative;
+  top: 10px;
+  left: -750px;
+  background-color: #007bff; /* Color de fondo azul */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espaciado interno del botón */
+  font-weight: bold; /* Texto en negrita */
+  cursor: pointer; /* Cursor de puntero al pasar el mouse */
+}
+
+.titulo {
+  font-size: 20px; /* Tamaño del texto del título */
+  color: black; /* Color del texto azul */
+  margin-bottom: 20px; /* Margen inferior entre los párrafos */
+}
+
+.esperando {
+  font-size: 25px; /* Tamaño del texto */
+  color: black; /* Color del texto negro */
+  margin-bottom: 15px; /* Margen inferior entre los párrafos */
+  margin-top: 20px; /* Margen superior */
+}
+
+.titulo-grande {
+  font-weight: bold; /* Texto en negrita */
+  font-size: 24px; /* Tamaño de fuente para "Risitos de Oro en el Bosque" */
+  color: black;
+}
+
+/**********************INGRESO-HISTORIA********************/
+.custom-input {
+  font-weight: bold; /* Texto en negrita */
+  font-size: 24px; /* Tamaño de fuente para "Risitos de Oro en el Bosque" */
+  color: black;
+}
+
+.btn {
+  color: #0048ab;
+  margin-right: 1550px;
+  margin-top: -40px;
+}
+

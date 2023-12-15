@@ -1,0 +1,84 @@
+
+  <main>
+        <div class="card">
+          <div class="d-flex">
+            <div class="izqui col-lg-6">
+              <!-- Parte izquierda -->
+              <div class="card2 mt-5 mb-5">
+                <div class="apipanel" #cesdk_container [style.height.vh]="90" [style.width.vw]="51"></div>
+              </div>
+            </div>
+            <div class="dere col-lg-6">
+            <!-- Parte derecha -->
+              <div class="card3 mt-5 mb-5">
+                <ng-container *ngFor="let question of questions; let i = index">
+                  <div *ngIf="page === i + 1">
+                    <div class="formulario">
+                      <form (submit)="submitForm(i)">
+                        <div class="title mt-3 mb-1" style="margin-left: 100px">
+                          <h2>FORMULARIO {{ i + 1 }}:</h2>
+                        </div>
+                        <div class="resp-group ">
+                          <label for="questionText{{ i + 1 }}">Pregunta {{ i + 1 }}:</label>
+                          <textarea class="cuestionInput" id="questionText{{ i + 1 }}" name="questionText{{ i + 1 }}" [(ngModel)]="questions[i].questionText" required rows="3"></textarea>
+
+                          <div class="d-flex justifly-content-between mt-2 mb-2">
+                            <label class="answer-label">RESPUESTAS</label>
+                            <label class="correct-label">CORRECTA</label>
+                          </div>
+                          <div *ngFor="let option of questions[i].options; let j = index" class="response">
+                            <label class="answer-number">R{{ j + 1 }}:  </label>
+                            <input class="responseInput" type="text" name="option{{ j }}" [(ngModel)]="questions[i].options[j].text" required>
+                            <input class="option" type="radio" [id]="'correct-' + i + '-' + j" name="correct{{ i }}" [value]="j" [checked]="questions[i].options[j].correct" (change)="updateCorrectOption(i, j)">
+
+                          </div>
+                          <div class="card55 title mt-4 mb-4" style="margin-left: 8px">
+                            <h4>VOCABULARIO {{ i + 1 }}:</h4>
+
+
+                          <form [formGroup]="miFormulario">
+                            <div *ngFor="let palabraGrupo of palabraGrupos; let i = index" formArrayName="palabras">
+                              <div [formGroupName]="i">
+                                <label class="sigcas">
+                                  Palabra:
+                                  <input class="responseInput2" formControlName="palabra"/>
+                                  <button *ngIf="i === 1 && ddd === 2" type="button" (click)="eliminarCampo()" class="round-button delete-button">-</button>
+                                  <button *ngIf="i === 0 && ddd === 1" type="button" (click)="agregarCampo()" class="round-button add-button">+</button>
+                                </label>
+                                <label class="sigcas">
+                                  Significado:
+                                  <textarea class="significadoInput" formControlName="significado"></textarea>
+                                </label>
+                                <br>
+                                <img *ngIf="ddd === 1" src="./assets/Diccionario.jpg" style="width: 400px; margin-left: 10px">
+                              </div>
+                            </div>
+                          </form>
+
+
+
+
+                          </div>
+
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+                </ng-container>
+                <div class="botones d-flex justify-content-end ">
+                  <!---<button [disabled]="page === 1" (click)="prevpage()" class="btn move-rigt"><i class="fa text-primary fa-chevron-left fa-2x" aria-hidden="true"></i></button>--->
+                  <button routerLink="/crea" *ngIf="page<5"  class="btn btn-secondary move-rigt">Cancelar</button>
+                  <button *ngIf="page >= 5" (click)="generateJSON()" class="btn btn-primary move-center">Guardar</button>
+                  <button *ngIf="page<5" (click)="nextpage()"  class="btn btn-primary move-left">Siguiente</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </main>
+
+
+
+
+

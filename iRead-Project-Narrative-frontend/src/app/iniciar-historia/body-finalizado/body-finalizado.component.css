@@ -1,0 +1,177 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  background-color: #f2f2f2; /* Color de fondo gris */
+  text-align: center; /* Centra el texto */
+  padding:160px; /* Espaciado interior del contenedor */
+  font-family: 'League Spartan', sans-serif;
+
+}
+
+.main h1 {
+  font-size: 36px; /* Tamaño del texto en negrita */
+  font-weight: bold; /* Grosor del texto */
+  color: #0049ac; /* Color del texto azul */
+  font-family: 'League Spartan', sans-serif;
+  margin-bottom: 50px;
+  margin-top: -100px;
+}
+
+.main p {
+  font-size: 18px; /* Tamaño del texto normal */
+  margin-bottom: 20px; /* Margen inferior */
+}
+
+.btn-register, .btn-login {
+  background-color: #000; /* Color de fondo negro */
+  color: #fff; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  padding: 15px 30px; /* Espaciado interno del botón */
+  font-size: 18px; /* Tamaño del texto del botón */
+  margin-bottom: 20px; /* Margen inferior */
+  border-radius: 30px;
+}
+
+.btn-login {
+  background-color: #000; /* Puedes cambiar el color si lo deseas */
+}
+
+/**********************DOCENTE-INICIO********************/
+
+/**********************ESTUDIANTE-INTERACTUA********************/
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 15%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.btn-orange {
+  background-color: #fd7900; /* Color de fondo naranja */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  padding: 15px 30px; /* Espaciado interno del botón */
+  font-size: 18px; /* Tamaño del texto del botón */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.btn-orange:hover {
+  background-color: #fd7900; /* Cambia el color de fondo al pasar sobre el botón */
+}
+
+/**********************ESTUDIANTE-INTERACTUA********************/
+
+.titulo-grande {
+  font-weight: bold; /* Texto en negrita */
+  font-size: 24px; /* Tamaño de fuente para "Risitos de Oro en el Bosque" */
+  color: black;
+
+  margin-left: 20px;
+}
+
+/**********************RESULTADO********************/
+
+.tabla {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+
+}
+
+.tabla .fila:first-child .columna {
+  color: rgb(128, 128, 128);
+}
+
+.fila {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.columna {
+  flex: 1;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+/**********************RESULTADO********************/
+
+/**********************DOCENTE RESULTADOS*******************/
+
+/* Estilos para el botón "Guardar resultados" */
+.guardar-btn {
+  position: relative;
+  left: 550px;
+  bottom: -60px;
+  background-color: #fd7900;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.row {
+  display: flex;
+  align-items: center; /* Alinea verticalmente los elementos */
+}
+
+.col1 {
+  flex: 1; /* Toma el espacio disponible en la izquierda */
+  text-align: right; /* Alinea el contenido a la derecha */
+  margin-right: -10px;
+}
+
+.col2 {
+  flex: 1; /* Toma el espacio disponible en la derecha */
+  text-align: left; /* Alinea el contenido a la izquierda */
+}
+
+.guardar-btn:hover {
+  background-color: #fd7900;
+}
+
+/* Estilos para el texto "Resultados: 18 Estudiantes" */
+.resultados-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.resultados-titulo {
+  color: #0049ac;
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 40px;
+}
+
+.resultados-texto {
+  color: black;
+  margin-top: 80px;
+  font-size: 120px;
+}
+
+lastbtn {
+  margin-bottom: 100px;
+}
+
+
+.linea-horizontal {
+  border: 1px solid #808080;
+  width: 300%;
+}

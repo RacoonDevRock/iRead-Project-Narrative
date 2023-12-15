@@ -1,0 +1,313 @@
+main {
+  background-color: #eaeaea; /* Color de fondo gris */
+  text-align: center; /* Centra el texto */
+  padding:  1px; /* Espaciado interior del contenedor */
+  font-family: 'League Spartan', sans-serif;
+}
+.main2 {
+   background-color: #05588d;
+   text-align: center; /* Centra el texto */
+   padding: 100px; /* Espaciado interior del contenedor */
+   font-family: 'League Spartan', sans-serif;
+ }
+.main3 {
+  background-color: #e8e8e8;
+  text-align: center; /* Centra el texto */
+  padding: 60px; /* Espaciado interior del contenedor */
+  font-family: 'League Spartan', sans-serif;
+}
+
+h2 {
+  margin-top: 80px;
+}
+h3 {
+  margin-top: 20px;
+}
+h5 {
+  margin-top: 20px;
+}
+
+.card{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #ffffff;
+}
+
+
+.card444 {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #ffffff;
+}
+
+.card52 {
+  margin-top: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  height: 600px;
+  padding: 10px;
+  border: 1px solid #c5c5c5;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+
+
+.card-7 {
+  background-color: rgba(255, 255, 255, 0);
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.card-7 img {
+  width: 93%;
+  height: 15%; /* Para mantener la proporción original de la imagen */
+  border-radius: 10px; /* Puedes ajustar el radio de borde según tus preferencias */
+}
+
+
+
+.card3{
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+
+.row {
+  margin-top: -80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+li{
+  list-style-type: none;
+  cursor: pointer;
+  margin: 10px 0;
+}
+li .card:hover{
+  border: 1px solid #e1791a;
+}
+ol{
+  padding: 0;
+}
+section {
+  display: table;
+}
+
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+/* Estilo CSS para hacer la imagen más pequeña */
+img.img-fluid {
+  width: 460px; /* Cambia este valor al tamaño deseado, por ejemplo, 50% */
+  height: 500px; /* Esto mantiene la proporción de la imagen */
+  margin-top: 50px;
+}
+
+
+.btn-leave{
+  margin-bottom: -100px;
+}
+
+
+.container {
+  display: flex;
+}
+
+button.aa{
+  margin: 5px;
+  padding: 10px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.panel {
+  background-color: #e8e8e8;
+  border: 1px solid #969696;
+}
+
+
+
+.panel3 {
+  margin-top: 0px;
+  width: 300px;
+  height: 80px;
+  margin-left: -220px; /* Empujará la card hacia la derecha */
+  margin-right: -50px;
+  background-color: #e8e8e8;
+  border: 1px solid #969696;
+}
+
+.panel4 {
+  margin-top: 50px;
+  width: 300px;
+  height: 80px;
+  margin-left: -220px; /* Empujará la card hacia la derecha */
+  margin-right: -50px;
+  background-color: #e8e8e8;
+  border: 1px solid #969696;
+}
+
+.panel button {
+  width: 220px;
+  margin: 5px;
+  padding: 10px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-left: 28px;
+}
+
+.panel-content {
+  color: #000000;
+  margin-top: 10px;
+  background-color: #f1eeee;
+}
+
+.panel1 {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+  margin-top: -20px;
+  background-color: #6c1765;
+
+}
+
+.panel h3 {
+  color: #565656;
+  margin-bottom: 5px;
+}
+
+
+.card4 {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 60px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.result {
+  padding: 80px;
+  width: 30pc;
+}
+
+.options ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+.options li {
+  margin-bottom: 10px;
+}
+
+.options div {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.options div.selected {
+  background-color: rgb(251, 120, 0); /* Color de fondo cuando está seleccionado */
+  color: #fff; /* Color del texto cuando está seleccionado */
+  border: 2px solid #5e5e5e;
+}
+
+/*.options div.correct {*/
+/*  !* Estilos adicionales para la opción correcta si es necesario *!*/
+/*  border-color: #f5f5f5; !* Cambiar color del borde para respuestas correctas *!*/
+/*}*/
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  margin: 0vh;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.card25 {
+  border: 1px solid rgba(204, 204, 204, 0);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+}
+
+.columna-izquierda {
+  flex: 1;
+}
+
+.columna-derecha {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.fila-arriba {
+  display: flex;
+  flex: 1;
+  margin-bottom: 10px;
+}
+
+.fila-arriba-izq{
+
+}
+
+.fila-arriba-der{
+
+}
+
+.fila-abajo {
+  display: flex;
+  justify-content: center;
+}
+
+.panel2 {
+  width: 250px;
+  margin-right: 1px;
+  margin-left: 10px;
+  background-color: #e8e8e8;
+  border: 1px solid #969696;
+}
+
+.panel23 {
+  width: 250px;
+
+  margin-right: 1px;
+  margin-left: 10px;
+  background-color: #e8e8e8;
+  border: 1px solid #969696;
+}
+
+.btn-pr {
+  background-color: #ee7102;
+  border-color: #ee7102;
+  color: white;
+}
+
+.btn-pr2 {
+  background-color: #ee7102;
+  border-color: #ee7102;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #ee7102;
+  border-color: #ee7102;
+  color: white;
+}
+
+

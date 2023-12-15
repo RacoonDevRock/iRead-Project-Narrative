@@ -1,0 +1,59 @@
+
+<main class="main">
+  <h1>La historia ha Finalizado</h1>
+  <h3 class="titulo mb-5">Titulo: {{ students.title }}</h3>
+  <div class="resultados-info">
+    <h2 class="resultados-titulo">Resultados:</h2>
+    <h2 class="titulo">{{ students.totalStudents }} Estudiantes</h2>
+  </div>
+  <div class="tabla mt-5">
+
+    <table responsive cAlign="middle" cTable>
+      <hr class="linea-horizontal">
+      <thead>
+      </thead>
+      <thead>
+      <tr>
+        <th class="w-25" scope="col">
+          Nombre del estudiante
+        </th>
+        <th class="w-25" scope="col">
+          Puntaje
+        </th>
+        <th class="w-25" scope="col">
+          Palabras Consultadas
+        </th>
+      </tr>
+      </thead>
+      <hr class="linea-horizontal">
+      <tbody *ngFor="let student of students.students">
+      <tr>
+        <td>
+          {{ student.nameStudent }}
+        </td>
+        <td>
+          {{ student.correctAnswer }}/20
+        </td>
+        <td>
+          <ng-container *ngFor="let word of student.consultedWord">
+            Palabra: {{ word.palabra }}, Consultas: {{ word.consultCount }}<br>
+          </ng-container>
+          <ng-container *ngIf="student.consultedWord && student.consultedWord.length == 0">
+            No realizo consultas<br>
+          </ng-container>
+
+        </td>
+      </tr>
+      <hr class="linea-horizontal">
+      </tbody>
+    </table>
+  </div>
+    <button class="btn-orange" routerLink="/historial">Volver a mis historias</button>
+</main>
+
+
+
+
+
+
+

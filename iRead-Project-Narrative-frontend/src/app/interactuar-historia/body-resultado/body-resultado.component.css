@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+/**********************DOCENTE-INICIO********************/
+
+.main {
+  background-color: #eaeaea; /* Color de fondo gris */
+  text-align: center; /* Centra el texto */
+  padding: 120px; /* Espaciado interior del contenedor */
+  font-family: 'League Spartan', sans-serif;
+}
+
+.main h1 {
+  font-size: 36px; /* Tamaño del texto en negrita */
+  font-weight: bold; /* Grosor del texto */
+  color: #0049ac; /* Color del texto azul */
+  font-family: 'League Spartan', sans-serif;
+  margin-bottom: 20px;
+}
+
+.main h2 {
+  font-size: 36px; /* Tamaño del texto en negrita */
+  font-weight: bold; /* Grosor del texto */
+  color: #0049ac; /* Color del texto azul */
+  font-family: 'League Spartan', sans-serif;
+  margin-top: 80px;
+  margin-right: 930px;
+}
+
+.main p {
+  font-size: 18px; /* Tamaño del texto normal */
+  margin-bottom: 20px; /* Margen inferior */
+}
+
+/**********************DOCENTE-INICIO********************/
+
+.btn-orange {
+  background-color: #ff9800; /* Color de fondo naranja */
+  color: white; /* Color del texto blanco */
+  border: none; /* Sin borde */
+  padding: 15px 30px; /* Espaciado interno del botón */
+  font-size: 18px; /* Tamaño del texto del botón */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+  border-radius: 30px;
+}
+
+.btn-orange:hover {
+  background-color: #f57c00; /* Cambia el color de fondo al pasar sobre el botón */
+}
+
+/**********************ESTUDIANTE-INTERACTUA********************/
+
+/**********************INGRESO-HISTORIA********************/
+
+.titulo {
+  font-size: 20px; /* Tamaño del texto del título */
+  color: black; /* Color del texto azul */
+  margin-bottom: 15px; /* Margen inferior entre los párrafos */
+}
+
+.autor {
+  font-size: 20px; /* Tamaño del texto del autor */
+  color: black; /* Color del texto verde */
+  margin-bottom: 15px; /* Margen inferior entre los párrafos */
+}
+
+.esperando {
+  font-size: 50px; /* Tamaño del texto */
+  font-weight: bold; /* Texto en negrita */
+  color: black; /* Color del texto negro */
+  margin-bottom: 15px; /* Margen inferior entre los párrafos */
+  margin-top: 50px; /* Margen superior */
+}
+
+.titulo-grande {
+  font-weight: bold; /* Texto en negrita */
+  font-size: 24px; /* Tamaño de fuente para "Risitos de Oro en el Bosque" */
+  color: black;
+}
+
+/**********************INGRESO-HISTORIA********************/
+
+/**********************RESULTADO********************/
+
+.tabla {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+.tabla .fila:first-child .columna {
+  color: rgb(128, 128, 128);
+}
+.fila {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.columna {
+  flex: 1;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}

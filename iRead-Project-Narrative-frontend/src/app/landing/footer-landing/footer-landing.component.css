@@ -1,0 +1,76 @@
+body {
+  font-family: 'League Spartan', sans-serif;
+  background: #ffffff;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.footer {
+  background-color: black;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  flex: 1;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-icons {
+  text-align: right; /* Cambiado a right para alinear los íconos a la derecha */
+  margin-top: 20px;
+
+  flex-direction: row; /* Mantenido para colocar los íconos uno al lado del otro */
+
+}
+
+.social-icon {
+  width: 60px;
+  height: 60px;
+  margin-left: 280px; /* Cambiado a left para separar los íconos de la derecha */
+}
+.social-icon1 {
+  width: 60px;
+  height: 60px;
+   /* Cambiado a left para separar los íconos de la derecha */
+}
+
+.logo {
+  width: 160px;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.company-name {
+  font-size: 18px;
+  margin: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.terms-link {
+  margin-top: 40px;
+  font-size: 18px;
+  text-align: left; /* Cambiado a left para alinear el texto "Términos y Condiciones" a la izquierda */
+  margin-left: -200px;
+}

@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body, app-root{
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  /*
+  @apply bg-sky-900
+  */
+
+  margin: auto;
+}
+
+@font-face {
+  font-family: 'League Spartan';
+  src: url('./assets/Luague_Spartan/static/LeagueSpartan-Bold.ttf') format('ttf');
+  src: url('./assets/Luague_Spartan/static/LeagueSpartan-ExtraBold.ttf') format('ttf');
+  src: url('./assets/Luague_Spartan/static/LeagueSpartan-Regular.ttf') format('ttf');
+
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+
+
+
+

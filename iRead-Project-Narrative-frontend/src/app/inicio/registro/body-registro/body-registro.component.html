@@ -1,0 +1,97 @@
+<main>
+
+  <div  (click)="anteriorPaso()" class="btn2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+    </svg>
+  </div>
+
+
+  <h1>Regístrate</h1>
+
+  <div class="step-container">
+    <div class="step">
+      <div class="circle">1</div>
+      <p>Información Personal</p>
+    </div>
+    <div class="separator"></div>
+    <div class="step">
+      <div class="circle">2</div>
+      <p>Información de Cuenta</p>
+    </div>
+  </div>
+
+
+  <div *ngIf="paso === 1">
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="postTeacherForm">
+          <div class="form-group">
+            <label for="name">Nombres: <span class="required">*</span></label>
+            <input placeholder="  Escribe tu nombre" type="text" id="name" name="name" required formControlName="name">
+          </div>
+          <div class="form-group">
+            <label for="surname">Apellidos: <span class="required">*</span></label>
+            <input placeholder="  Escribe tus apellidos" type="text" id="surname" name="surname" required formControlName="surname">
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="button" class="btn btn-primary" (click)="siguientePaso()">Siguiente</button>
+    </div>
+  </div>
+
+
+  <!-- Segundo paso del formulario -->
+  <div *ngIf="paso === 2">
+    <div class="card2">
+      <div class="card-body2">
+        <form [formGroup]="postTeacherForm">
+        <div class="form-group">
+          <label for="email">Correo: <span class="required">*</span></label>
+          <input placeholder="  ejemplo@gmail.com" type="email" id="email" name="email" required formControlName="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña: <span class="required">*</span></label>
+          <input placeholder="  Al menos 8 caracteres" type="password" id="password" name="password" required formControlName="password">
+        </div>
+          <!-- Eliminado el campo de confirmar contraseña ya que no está definido en el FormGroup -->
+          <div class="checkbox">
+            <mat-checkbox class="field-label" formControlName="newsletterCtrl">Acepto que envíen a mi correo Novedades sobre iRead</mat-checkbox>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" (click)="register()">Registrar</button>
+    </div>
+  </div>
+</main>
+
+<!--<main>-->
+<!--<div class="container">-->
+<!--  <div class="form-container">-->
+<!--    <h2 class="form-title">Post new Teacher</h2>-->
+<!--    <form [formGroup]="postTeacherForm">-->
+<!--      <div class="form-group">-->
+<!--        <label for="name2">Name: </label>-->
+<!--        <input type="text" id="name2" name="name" required formControlName="name">-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <label for="surname">Surname: </label>-->
+<!--        <input type="text" id="surname2" name="surname" required formControlName="surname">-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <label for="email2">Email:</label>-->
+<!--        <input type="email" id="email2" name="email" required formControlName="email">-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <label for="password2">Password:</label>-->
+<!--        <input type="text" id="password2" name="password" required formControlName="password">-->
+<!--      </div>-->
+<!--      <button type="submit" (click)="register()">Post</button>-->
+<!--    </form>-->
+<!--  </div>-->
+<!--</div>-->
+<!--</main>-->

@@ -1,0 +1,118 @@
+body {
+  background-color: #ECECEC;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.page-title h1 {
+  font-size: 35px;
+  font-weight: bold;
+  color: #004AAD;
+}
+
+/* Estilos para el MatStepper */
+.mat-stepper-horizontal .mat-step-header {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.mat-step-label {
+  margin-top: 5px; /* Ajusta el margen superior del texto debajo del indicador según sea necesario */
+}
+
+.stepper-container {
+  max-width: 550px; /* Establece el ancho máximo que deseas para el stepper */
+  margin: 0 auto; /* Centra el stepper en el contenedor */
+  background-color: #ECECEC;
+}
+
+.stepper {
+  background-color: #ECECEC;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.step {
+  background-color: #ECECEC;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.form {
+  width: 100%;
+}
+
+.field-label {
+  color: rgb(0, 0, 0); /* Cambia el color de todas las etiquetas con la clase field-label a verde */
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block; /* Hace que las etiquetas (títulos) ocupen todo el ancho disponible */
+  margin-bottom: 5px; /* Agrega un pequeño espacio entre las etiquetas y los campos de texto */
+}
+
+.input-group input {
+  width: 100%; /* Hace que los campos de texto ocupen todo el ancho disponible */
+  border-radius: 30px;
+}
+
+.required {
+  color: red;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  color: white;
+}
+
+.next-button, .back-button {
+  background-color: #ff9800;
+  color: white;
+  margin-top: 50px;
+  border: none;
+  padding: 25px 50px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 0 20px;
+  font-size: 20px;
+}
+
+/* Estilos para el contenedor verde */
+.form-container {
+  background-color: #c9e1679d; /* Color verde */
+  margin-top: 100px;
+  padding: 20px; /* Espaciado interior */
+  border-radius: 30px; /* Bordes redondeados */
+  margin-bottom: 20px; /* Espaciado en la parte inferior */
+}
+
+/* Estilos para los campos de texto y títulos dentro del contenedor verde */
+.form-container .input-group {
+  margin-bottom: 20px; /* Espaciado entre campos de texto */
+  color: white; /* Texto blanco */
+}
+
+.form-container .input-group label {
+  display: block;
+  margin-bottom: 5px; /* Espaciado entre el título y el campo de texto */
+}
+
+.form-container .mat-checkbox {
+  color: white; /* Texto blanco para el checkbox */
+}
+
+
+
+

@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  background-color: #eaeaea;
+  text-align: center;
+  font-family: 'League Spartan', sans-serif;
+  position: relative;
+  color: #004AAD;
+  font-weight: bold; /* Agrega letra negrita */
+  display: flex; /* Usa flexbox para centrar verticalmente */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  height: 900px; /* Usa altura del 100% de la ventana */
+  flex-direction: column; /* Alinea los elementos verticalmente */
+}
+
+h1 {
+  margin-bottom: 20px; /* Agrega un espacio entre el título y el spinner */
+  font-weight: bold; /* Agrega letra negrita */
+
+}
+
+.spinner-border {
+  margin-top: 50px;
+  width: 15rem; /* Ajusta el ancho según sea necesario */
+  height: 15rem; /* Ajusta la altura según sea necesario */
+  border-width: 0.8em; /* Ajusta el ancho del borde según sea necesario */
+  color: #004AAD;
+}
+

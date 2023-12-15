@@ -1,0 +1,31 @@
+<main>
+  <div class="header-container">
+    <h1 class="titulo">Mis historias creadas</h1>
+    <div class="filtro">
+      <select id="inputState" class="form-control select-filtro" (change)="onFiltroChange($event)">
+        <option selected>filtro..</option>
+        <option>Alfabeticamente</option>
+        <option>Mas recientes</option>
+      </select>
+    </div>
+  </div>
+
+  <div *ngIf="!filtro" class="no-historias">
+    <h3>Aún no hay historias creadas..</h3>
+  </div>
+
+  <div class="cards-container">
+    <!-- Utiliza *ngFor en la card individual -->
+    <div class="card" *ngFor="let story of stories">
+      <img [src]="story.imgPreview" alt="Imagen de la historia">
+      <div class="datosdehistoria mt-3">
+        <h2>{{ story.title }}</h2>
+        <p>Creado el {{ transformarFecha(story.dateCreation) }}</p>
+        <div class="botones-container">
+          <button (click)="iniciarHistoria(story)" class="btn-orange">Iniciar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+

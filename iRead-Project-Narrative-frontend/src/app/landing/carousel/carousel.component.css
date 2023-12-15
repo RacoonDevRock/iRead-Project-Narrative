@@ -1,0 +1,76 @@
+.carousel-container {
+  width: 40%; /* Establece el ancho deseado del carrusel */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
+  overflow: hidden; /* Oculta el desbordamiento de los elementos hijos */
+  margin-top: -90px;
+  margin-bottom: 50px;
+
+}
+
+.carousel {
+  display: flex;
+  justify-content: space-between;
+  transition: transform 0.3s ease-in-out;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+}
+
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #ccc;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.prev-btn {
+  background-color: transparent;
+  margin-right: 100px;
+  left: 0;
+  color: #ffffff;
+}
+
+.next-btn {
+  right: 0;
+  margin-left: 1000px;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+.slide img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+.indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: -100px; /* Ajusta segÃºn sea necesario para separar los indicadores del carrusel */
+  margin-bottom: 50px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 5px; /* Espaciado entre los indicadores */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+  background-color: hsl(0, 0%, 0%); /* Color del indicador activo */
+}

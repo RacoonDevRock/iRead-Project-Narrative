@@ -1,0 +1,35 @@
+<main class="main5">
+  <div  (click)="anteriorPaso()" class="btn2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+    </svg>
+  </div>
+</main>
+
+
+  <main *ngIf="page===1">
+  <h1>¡Hola Estudiante!</h1>
+  <p>Tu docente te compartirá una palabra <br> clave para que ingreses a la Historia.</p><p></p>
+    <br>
+  <h1>Ingresa el Código</h1>
+
+  <div class="input-group">
+    <input [(ngModel)]="text" type="text" id="providedAccessWord" name="providedAccessWord" placeholder="Ejm: Arbolrojo" required>
+  </div>
+  <button (click)="accessStory()" class="btn-orange">Comenzar</button>
+
+</main>
+<main *ngIf="page===2">
+  <h1>Ingresa tu nombre</h1>
+  <p>Ingresa tu nombre con el que el docente te <br> identificará.</p><p></p>
+  <p class="recomendacion">Lo recomendado es primer nombre y primer apellido</p>
+
+  <div class="input-group">
+    <input #nameStudent [(ngModel)]="text2" type="text" id="nameStudent" name="nameStudent" placeholder="Ejm: Luis Sanchez" required>
+  </div>
+
+    <button (click)="registerStudent()" class="btn-orange" >Ir a la Historia</button>
+</main>
+
+
+

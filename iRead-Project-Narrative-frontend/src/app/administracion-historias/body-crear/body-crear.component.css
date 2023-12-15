@@ -1,0 +1,35 @@
+.main {
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 15pc; /* Ajusta el espaciado según sea necesario */
+}
+
+.main h1 {
+  font-size: 55px; /* Tamaño del texto en negrita */
+  font-weight: bold;
+  color: #0049ac;
+  margin-bottom: 30px; /* Aumenta el margen inferior */
+  font-family: 'League Spartan', sans-serif;
+}
+
+.main p {
+  font-size: 25px; /* Tamaño del texto normal */
+  margin-bottom: 40px; /* Aumenta el margen inferior */
+  font-family: 'League Spartan', sans-serif;
+}
+
+.btn-orange {
+  background-color: #fd7900;
+  color: white;
+  border: none;
+  padding: 20px 40px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+  font-family: 'League Spartan', sans-serif;
+}
+
+.btn-orange:hover {
+  background-color: #fd7900;
+}
