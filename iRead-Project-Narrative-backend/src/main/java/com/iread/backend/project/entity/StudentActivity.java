@@ -21,7 +21,8 @@ public class StudentActivity {
     @Column(name = "correct_answer", nullable = false)
     private int correctAnswer;
 
-    @Column(name = "consulted_word", nullable = false, columnDefinition = "LONGTEXT")
+//    @Column(name = "consulted_word", nullable = false, columnDefinition = "LONGTEXT") //MYSQL
+    @Column(name = "consulted_word", nullable = false, columnDefinition = "TEXT") //POSTGRESQL
     private String consultedWord;
 
     @ManyToOne

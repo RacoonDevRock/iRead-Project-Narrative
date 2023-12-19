@@ -20,10 +20,12 @@ public class Activity {
     @Column(name = "activity_id", nullable = false)
     private Long id;
 
-    @Column(name = "json_converted", nullable = false, columnDefinition = "LONGTEXT")
+//    @Column(name = "json_converted", nullable = false, columnDefinition = "LONGTEXT") //MYSQL
+    @Column(name = "json_converted", nullable = false, columnDefinition = "TEXT") //POSTGRESQL
     private String jsonConverted;
 
-    @Column(name = "img_preview", nullable = false, columnDefinition = "LONGTEXT")
+//    @Column(name = "img_preview", nullable = false, columnDefinition = "LONGTEXT") //MYSQL
+    @Column(name = "img_preview", nullable = false, columnDefinition = "TEXT") //POSTGRESQL
     private String imgPreview;
 
     @OneToOne

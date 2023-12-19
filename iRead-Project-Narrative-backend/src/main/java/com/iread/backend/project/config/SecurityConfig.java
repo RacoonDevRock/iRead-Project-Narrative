@@ -43,6 +43,7 @@ public class SecurityConfig {
                 new AntPathRequestMatcher("/api/auth/**"),
                 new AntPathRequestMatcher("/api/students/**"),
                 new AntPathRequestMatcher("/api/stories/{storyId}/activity"),
+                new AntPathRequestMatcher("/api/auth/confirm?token="),
                 new AntPathRequestMatcher("/api/activities/**"),
                 new AntPathRequestMatcher("/v3/api-docs/**"),
                 new AntPathRequestMatcher("/swagger-ui/**"),
