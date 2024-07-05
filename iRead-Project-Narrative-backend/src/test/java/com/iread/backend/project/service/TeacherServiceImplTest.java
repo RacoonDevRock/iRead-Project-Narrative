@@ -4,6 +4,7 @@ import com.iread.backend.project.config.jwt.JwtService;
 import com.iread.backend.project.dto.AuthDTO;
 import com.iread.backend.project.dto.AuthenticationDTORequest;
 import com.iread.backend.project.exception.EmailExistsException;
+import com.iread.backend.project.service.impl.TeacherServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

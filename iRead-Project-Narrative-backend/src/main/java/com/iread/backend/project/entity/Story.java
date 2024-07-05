@@ -19,10 +19,9 @@ public class Story {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "story_id", nullable = false)
     private Long id;
 
-    @Column(name = "title", nullable = false)
+    @Column(nullable = false)
     @Size(min = 10, max = 25)
     private String title;
 

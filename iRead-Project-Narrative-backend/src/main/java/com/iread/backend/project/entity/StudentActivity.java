@@ -15,14 +15,12 @@ public class StudentActivity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "student_interaction_id", nullable = false)
     private Long id;
 
     @Column(name = "correct_answer", nullable = false)
     private int correctAnswer;
 
-//    @Column(name = "consulted_word", nullable = false, columnDefinition = "LONGTEXT") //MYSQL
-    @Column(name = "consulted_word", nullable = false, columnDefinition = "TEXT") //POSTGRESQL
+    @Column(name = "consulted_word", nullable = false, columnDefinition = "LONGTEXT") //MYSQL
     private String consultedWord;
 
     @ManyToOne

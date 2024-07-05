@@ -3,7 +3,7 @@ package com.iread.backend.project.controller;
 import com.iread.backend.project.dto.StoryDTO;
 import com.iread.backend.project.entity.Activity;
 import com.iread.backend.project.entity.Story;
-import com.iread.backend.project.service.StoryService;
+import com.iread.backend.project.service.StoryServiceImpl;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -21,46 +21,46 @@ import java.util.Map;
 @AllArgsConstructor
 public class StoryController {
 
-    private final StoryService storyService;
+    private final StoryServiceImpl storyServiceImpl;
 
     @PostMapping("/createStory/{teacherId}")
     @SecurityRequirement(name = "Bearer Authentication")
     public ResponseEntity<Story> createStory(@PathVariable Long teacherId, @RequestBody Story story) {
-        Story createdStory = storyService.createStoryForTeacher(teacherId, story);
+        Story createdStory = storyServiceImpl.createStoryForTeacher(teacherId, story);
         return new ResponseEntity<>(createdStory, HttpStatus.CREATED);
     }
 
     @PutMapping("/{storyId}/activity")
     @SecurityRequirement(name = "Bearer Authentication")
     public ResponseEntity<Story> assignActivityToStory(@PathVariable Long storyId, @RequestBody Activity activityDetails) {
-        Story updatedStory = storyService.assignActivityToStory(storyId, activityDetails);
+        Story updatedStory = storyServiceImpl.assignActivityToStory(storyId, activityDetails);
         return ResponseEntity.ok(updatedStory);
     }
 
     @GetMapping("/byTeacher/{teacherId}")
     @SecurityRequirement(name = "Bearer Authentication")
     public ResponseEntity<List<StoryDTO>> getStoriesByTeacherId(@PathVariable Long teacherId) {
-        List<StoryDTO> storyDTOS = storyService.findAllStoriesByTeacherId(teacherId);
+        List<StoryDTO> storyDTOS = storyServiceImpl.findAllStoriesByTeacherId(teacherId);
         return ResponseEntity.ok(storyDTOS);
     }
 
     @PutMapping("/activate/{storyId}")
     @SecurityRequirement(name = "Bearer Authentication")
     public String activateStory(@PathVariable Long storyId) {
-        return storyService.activateStory(storyId);
+        return storyServiceImpl.activateStory(storyId);
     }
 
     //trae la actividad al niño: publicEndpoint
     @GetMapping("/{storyId}/activity")
     public ResponseEntity<Activity> getActivityByStoryId(@PathVariable Long storyId) {
-        Activity activity = storyService.getActivityByStoryId(storyId);
+        Activity activity = storyServiceImpl.getActivityByStoryId(storyId);
         return ResponseEntity.ok(activity);
     }
 
     @PutMapping("/deactivate/{storyId}")
     @SecurityRequirement(name = "Bearer Authentication")
     public ResponseEntity<Map<String, Object>> deactivateStory(@PathVariable Long storyId) {
-        Map<String, Object> response = storyService.deactivateStory(storyId);
+        Map<String, Object> response = storyServiceImpl.deactivateStory(storyId);
         return ResponseEntity.ok(response);
     }
 }

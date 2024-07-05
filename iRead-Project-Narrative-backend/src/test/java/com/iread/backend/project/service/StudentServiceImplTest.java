@@ -22,7 +22,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-class StudentServiceTest {
+class StudentServiceImplTest {
 
     @Mock
     private StoryRepository storyRepository;
@@ -34,7 +34,7 @@ class StudentServiceTest {
     private StudentActivityRepository studentActivityRepository;
 
     @InjectMocks
-    private StudentService studentService;
+    private StudentServiceImpl studentServiceImpl;
 
     @BeforeEach
     void setUp() {
@@ -56,7 +56,7 @@ class StudentServiceTest {
         when(storyRepository.findStoryByAccessWord(accessWord)).thenReturn(existingStory);
 
         // Act
-        StoryResponse result = studentService.accessStory(storyDTORequest);
+        StoryResponse result = studentServiceImpl.accessStory(storyDTORequest);
 
         // Assert
         assertNotNull(result);
@@ -78,7 +78,7 @@ class StudentServiceTest {
         when(storyRepository.findStoryByAccessWord(accessWord)).thenReturn(null);
 
         // Act & Assert
-        assertThrows(IllegalStateException.class, () -> studentService.accessStory(storyDTORequest));
+        assertThrows(IllegalStateException.class, () -> studentServiceImpl.accessStory(storyDTORequest));
 
         // Verify that the repository method was called
         verify(storyRepository, times(1)).findStoryByAccessWord(accessWord);
@@ -95,7 +95,7 @@ class StudentServiceTest {
         when(studentRepository.save(inputStudent)).thenReturn(savedStudent);
 
         // Act
-        Student result = studentService.registerStudent(inputStudent);
+        Student result = studentServiceImpl.registerStudent(inputStudent);
 
         // Assert
         assertNotNull(result);
@@ -124,7 +124,7 @@ class StudentServiceTest {
         when(studentActivityRepository.save(studentActivity)).thenReturn(studentActivity);
 
         // Act
-        StudentActivity result = studentService.completeActivity(studentId, studentActivity, activityId);
+        StudentActivity result = studentServiceImpl.completeActivity(studentId, studentActivity, activityId);
 
         // Assert
         assertNotNull(result);
@@ -147,7 +147,7 @@ class StudentServiceTest {
 
         // Act & Assert
         assertThrows(ResourceNotFoundException.class,
-                () -> studentService.completeActivity(studentId, new StudentActivity(), activityId));
+                () -> studentServiceImpl.completeActivity(studentId, new StudentActivity(), activityId));
 
         verify(studentRepository, times(1)).findById(studentId);
         verify(activityRepository, never()).findById(activityId);
@@ -169,7 +169,7 @@ class StudentServiceTest {
 
         // Act & Assert
         assertThrows(ResourceNotFoundException.class,
-                () -> studentService.completeActivity(studentId, new StudentActivity(), activityId));
+                () -> studentServiceImpl.completeActivity(studentId, new StudentActivity(), activityId));
 
         verify(studentRepository, times(1)).findById(studentId);
         verify(activityRepository, times(1)).findById(activityId);

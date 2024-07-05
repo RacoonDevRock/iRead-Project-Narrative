@@ -10,10 +10,10 @@ import java.util.Properties;
 
 @Configuration
 public class EmailConfig {
-    @Value("${SPRING_MAIL_USERNAME:#{null}}")
+    @Value("${spring.email.username}")
     private String username;
 
-    @Value("${SPRING_MAIL_PASSWORD:#{null}}")
+    @Value("${spring.mail.password}")
     private String password ;
 
     @Bean
@@ -22,8 +22,8 @@ public class EmailConfig {
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
 
-        mailSender.setUsername("iread000learnplaytech@gmail.com");
-        mailSender.setPassword("vxgxlzjpxrtphslh");
+        mailSender.setUsername(username);
+        mailSender.setPassword(password);
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");

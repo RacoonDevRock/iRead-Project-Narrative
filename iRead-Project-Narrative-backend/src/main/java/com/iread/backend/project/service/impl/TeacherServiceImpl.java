@@ -1,4 +1,4 @@
-package com.iread.backend.project.service;
+package com.iread.backend.project.service.impl;
 
 import com.iread.backend.project.config.jwt.JwtService;
 import com.iread.backend.project.dto.AuthDTO;
@@ -9,6 +9,7 @@ import com.iread.backend.project.exception.EmailExistsException;
 import com.iread.backend.project.registration.token.ConfirmationToken;
 import com.iread.backend.project.registration.token.ConfirmationTokenService;
 import com.iread.backend.project.repository.TeacherRepository;
+import com.iread.backend.project.service.TeacherService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

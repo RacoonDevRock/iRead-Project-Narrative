@@ -23,18 +23,17 @@ public class Teacher implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "teacher_id")
     private Long id;
 
     @Column(name = "teacher_name", nullable = false)
     @Size(max = 25)
-    private String name;
+    private String teacherName;
 
     @Column(name = "teacher_surname", nullable = false)
     @Size(max = 25)
-    private String surname;
+    private String teacherSurname;
 
-    @Column(name = "teacher_email", nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
     @Size(max = 40)
     private String email;
 
@@ -57,9 +56,9 @@ public class Teacher implements UserDetails {
     @Column(name = "recovery_token_expiry")
     private LocalDateTime recoveryTokenExpiry;
 
-    public Teacher(String name, String surname, String email, String password) {
-        this.name = name;
-        this.surname = surname;
+    public Teacher(String teacherName, String teacherSurname, String email, String password) {
+        this.teacherName = teacherName;
+        this.teacherSurname = teacherSurname;
         this.email = email;
         this.password = password;
     }

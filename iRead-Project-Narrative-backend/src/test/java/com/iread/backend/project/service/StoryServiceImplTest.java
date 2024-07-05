@@ -19,7 +19,7 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-class StoryServiceTest {
+class StoryServiceImplTest {
     @Mock
     private StoryRepository storyRepository;
     @Mock
@@ -30,7 +30,7 @@ class StoryServiceTest {
     private StoryMapper storyMapper;
 
     @InjectMocks
-    private StoryService storyService;
+    private StoryServiceImpl storyServiceImpl;
 
 
     @BeforeEach
@@ -51,7 +51,7 @@ class StoryServiceTest {
         when(storyRepository.save(story)).thenReturn(story);
 
         // Act
-        Story result = assertDoesNotThrow(() -> storyService.createStoryForTeacher(teacherId, story));
+        Story result = assertDoesNotThrow(() -> storyServiceImpl.createStoryForTeacher(teacherId, story));
 
         // Assert
         assertNotNull(result);
@@ -72,7 +72,7 @@ class StoryServiceTest {
 
         // Act & Assert
         ResourceNotFoundException exception = assertThrows(ResourceNotFoundException.class,
-                () -> storyService.createStoryForTeacher(teacherId, story));
+                () -> storyServiceImpl.createStoryForTeacher(teacherId, story));
 
         assertEquals("No se encontró al profesor con el ID: " + teacherId, exception.getMessage());
 
@@ -95,7 +95,7 @@ class StoryServiceTest {
         when(storyRepository.save(any(Story.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
         // Act
-        Story result = assertDoesNotThrow(() -> storyService.assignActivityToStory(storyId, activityDetails));
+        Story result = assertDoesNotThrow(() -> storyServiceImpl.assignActivityToStory(storyId, activityDetails));
 
         // Assert
         assertNotNull(result);
@@ -134,7 +134,7 @@ class StoryServiceTest {
         when(storyMapper.mapToDTO(story2)).thenReturn(storyDto2);
 
         // Act
-        List<StoryDTO> result = storyService.findAllStoriesByTeacherId(teacherId);
+        List<StoryDTO> result = storyServiceImpl.findAllStoriesByTeacherId(teacherId);
 
         // Assert
         assertNotNull(result);
@@ -155,7 +155,7 @@ class StoryServiceTest {
         when(storyRepository.findAllStoriesByTeacherId(teacherId)).thenReturn(Collections.emptyList());
 
         // Act
-        List<StoryDTO> result = storyService.findAllStoriesByTeacherId(teacherId);
+        List<StoryDTO> result = storyServiceImpl.findAllStoriesByTeacherId(teacherId);
 
         // Assert
         assertNotNull(result);
@@ -179,7 +179,7 @@ class StoryServiceTest {
         when(storyRepository.findById(storyId)).thenReturn(Optional.of(existingStory));
 
         // Act
-        String result = storyService.activateStory(storyId);
+        String result = storyServiceImpl.activateStory(storyId);
 
         // Assert
         assertNotNull(result);
@@ -199,7 +199,7 @@ class StoryServiceTest {
         when(storyRepository.findById(storyId)).thenReturn(Optional.empty());
 
         // Act & Assert
-        assertThrows(ResourceNotFoundException.class, () -> storyService.activateStory(storyId));
+        assertThrows(ResourceNotFoundException.class, () -> storyServiceImpl.activateStory(storyId));
 
         // Verify that the save method was not called
         verify(storyRepository, never()).save(any(Story.class));
@@ -234,7 +234,7 @@ class StoryServiceTest {
         when(storyRepository.findById(storyId)).thenReturn(Optional.of(story));
 
         // Act
-        Map<String, Object> result = storyService.deactivateStory(storyId);
+        Map<String, Object> result = storyServiceImpl.deactivateStory(storyId);
 
         // Assert
         assertNotNull(result);
@@ -254,7 +254,7 @@ class StoryServiceTest {
         when(storyRepository.findById(storyId)).thenReturn(Optional.empty());
 
         // Act & Assert
-        assertThrows(ResourceNotFoundException.class, () -> storyService.deactivateStory(storyId));
+        assertThrows(ResourceNotFoundException.class, () -> storyServiceImpl.deactivateStory(storyId));
 
         verify(storyRepository, times(1)).findById(storyId);
         verify(storyRepository, never()).save(any());

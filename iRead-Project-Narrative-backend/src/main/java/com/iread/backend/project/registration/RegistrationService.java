@@ -7,11 +7,10 @@ import com.iread.backend.project.entity.Teacher;
 import com.iread.backend.project.mapper.TeacherMapper;
 import com.iread.backend.project.registration.token.ConfirmationToken;
 import com.iread.backend.project.registration.token.ConfirmationTokenService;
-import com.iread.backend.project.service.TeacherServiceImpl;
+import com.iread.backend.project.service.impl.TeacherServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 

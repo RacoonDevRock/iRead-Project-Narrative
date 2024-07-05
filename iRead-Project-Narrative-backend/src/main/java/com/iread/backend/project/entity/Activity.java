@@ -17,15 +17,12 @@ public class Activity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "activity_id", nullable = false)
     private Long id;
 
-//    @Column(name = "json_converted", nullable = false, columnDefinition = "LONGTEXT") //MYSQL
-    @Column(name = "json_converted", nullable = false, columnDefinition = "TEXT") //POSTGRESQL
+    @Column(name = "json_converted", nullable = false, columnDefinition = "LONGTEXT") //MYSQL
     private String jsonConverted;
 
-//    @Column(name = "img_preview", nullable = false, columnDefinition = "LONGTEXT") //MYSQL
-    @Column(name = "img_preview", nullable = false, columnDefinition = "TEXT") //POSTGRESQL
+    @Column(name = "img_preview", nullable = false, columnDefinition = "LONGTEXT") //MYSQL
     private String imgPreview;
 
     @OneToOne
