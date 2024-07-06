@@ -16,7 +16,7 @@ public class StoryMapper {
 
     public StoryDTOResponse mapToDTO(Story story) {
         return StoryDTOResponse.builder()
-                .storyId(story.getId())
+                .title(story.getTitle())
                 .accessWord(story.getAccessWord())
                 .active(story.getActive())
                 .build();

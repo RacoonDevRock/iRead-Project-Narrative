@@ -17,7 +17,4 @@ public class StudentDTORequest {
     @NotBlank(message = "The 'nameStudent' field is required")
     @Size(min = 5, max = 30)
     public String nameStudent;
-
-    @NotBlank
-    public StudentActivity studentActivities;
 }

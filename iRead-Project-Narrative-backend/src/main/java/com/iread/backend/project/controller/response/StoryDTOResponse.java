@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class StoryDTOResponse {
-    private Long storyId;
+    private String title;
     private String accessWord;
     private Boolean active;
 }

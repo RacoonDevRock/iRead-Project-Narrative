@@ -6,8 +6,9 @@ import com.iread.backend.project.controller.request.StudentDTORequest;
 import com.iread.backend.project.controller.response.StoryDTOResponse;
 import com.iread.backend.project.controller.response.StudentDTOResponse;
 import com.iread.backend.project.entity.StudentActivity;
-import com.iread.backend.project.service.impl.StudentServiceImpl;
+import com.iread.backend.project.service.StudentService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,24 +19,24 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class StudentController {
 
-    private final StudentServiceImpl studentServiceImpl;
+    private final StudentService studentService;
 
     @PostMapping("/access-story")
-    public ResponseEntity<StoryDTOResponse> accessStory(@RequestBody AccessStoryDTORequest accessStoryDTORequest) {
-        StoryDTOResponse storyDTOResponse = studentServiceImpl.accessStory(accessStoryDTORequest);
+    public ResponseEntity<StoryDTOResponse> accessStory(@Valid @RequestBody AccessStoryDTORequest accessStoryDTORequest) {
+        StoryDTOResponse storyDTOResponse = studentService.accessStory(accessStoryDTORequest);
         return ResponseEntity.ok(storyDTOResponse);
     }
 
-    @PostMapping("/register-student")
-    public ResponseEntity<StudentDTOResponse> registerStudent(@RequestBody StudentDTORequest studentDTORequest) {
-        return ResponseEntity.ok(studentServiceImpl.registerStudent(studentDTORequest));
+    @PostMapping("/register")
+    public ResponseEntity<StudentDTOResponse> registerStudent(@Valid @RequestBody StudentDTORequest studentDTORequest) {
+        return ResponseEntity.ok(studentService.registerStudent(studentDTORequest));
     }
 
     @PostMapping("/{studentId}/studentActivities/{activityId}")
     public ResponseEntity<StudentActivity> completeActivity(@PathVariable Long studentId,
                                                             @RequestBody StudentActivityDTORequest studentActivityDTORequest,
                                                             @PathVariable Long activityId) {
-        StudentActivity completedActivity = studentServiceImpl.completeActivity(studentId, studentActivityDTORequest, activityId);
+        StudentActivity completedActivity = studentService.completeActivity(studentId, studentActivityDTORequest, activityId);
         return ResponseEntity.ok(completedActivity);
     }
 }

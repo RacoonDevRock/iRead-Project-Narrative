@@ -12,6 +12,7 @@ import com.iread.backend.project.exception.IncorrectCredentials;
 import com.iread.backend.project.exception.TokenNotFound;
 import com.iread.backend.project.repository.TeacherRepository;
 import com.iread.backend.project.service.RoleService;
+import com.iread.backend.project.service.TeacherService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -34,13 +35,13 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class IUserDetailService implements UserDetailsService {
-    private final TeacherRepository teacherRepository;
+    private final TeacherService teacherService;
     private final JwtUtils jwtUtils;
-    private final PasswordEncoder passwordEncoder;
     private final RoleService roleService;
+    private final PasswordEncoder passwordEncoder;
     private final JavaMailSender javaMailSender;
 
-    @Value("${spring.email.sender.user}")
+    @Value("${spring.email.username}")
     private String mailOrigin;
 
     @Value("${url.client.side}")
@@ -48,9 +49,8 @@ public class IUserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<Teacher> teacherOptional = teacherRepository.findUserByEmail(username);
-        return teacherOptional.map(teacher -> new User(teacher.getEmail(),
-                        teacher.getPassword(), true, true, true, true,
+        return teacherService.findTeacherByEmail(username)
+                .map(teacher -> new User(teacher.getEmail(), teacher.getPassword(), true, true, true, true,
                         AuthorityUtils.createAuthorityList(teacher.getRole().getRoleEnum().name())))
                 .orElseThrow(() -> new UsernameNotFoundException("User(Teacher) " + username + " not found"));
     }
@@ -92,7 +92,7 @@ public class IUserDetailService implements UserDetailsService {
                 .teacherName(teacherDTORequest.getTeacherName())
                 .teacherSurname(teacherDTORequest.getTeacherSurname())
                 .email(teacherDTORequest.getEmail())
-                .password(teacherDTORequest.getPassword())
+                .password(passwordEncoder.encode(teacherDTORequest.getPassword()))
                 .isEnabled(true)
                 .accountNonLocked(true)
                 .accountNonExpired(true)
@@ -100,7 +100,7 @@ public class IUserDetailService implements UserDetailsService {
                 .role(roleService.findByRoleEnum(teacherDTORequest.getRole()))
                 .build();
 
-        Teacher teacherCreated = teacherRepository.save(teacher);
+        Teacher teacherCreated = teacherService.saveTeacher(teacher);
 
         SecurityContext securityContext = SecurityContextHolder.getContext();
         Authentication authentication = new UsernamePasswordAuthenticationToken(teacherCreated.getEmail(),
@@ -109,10 +109,10 @@ public class IUserDetailService implements UserDetailsService {
 
         sendSimpleMessage(
                 teacherCreated.getEmail(),
-                "Account Verification - iMechanic",
-                "Estimado/a " + teacher.getTeacherName() + ",\n\nGracias por registrarte en iMechanic. Por favor, haz clic en el siguiente enlace para confirmar tu cuenta:\n\n" + baseUrl + "/verificar/" + accessToken + "\n\nSaludos,\nEl equipo de iMechanic");
+                "Account Verification - iRead",
+                "Estimado/a " + teacher.getTeacherName() + ",\n\nGracias por iRead en iMechanic. Por favor, haz clic en el siguiente enlace para confirmar tu cuenta:\n\n" + baseUrl + "/verificar/" + accessToken + "\n\nSaludos,\nEl equipo de iMechanic");
 
-        return new SignUpDTOResponse("Welcome to iMechanic, '" + teacherDTORequest.getTeacherName() + "' .You have been successfully registered.");
+        return new SignUpDTOResponse("Welcome to iRead, '" + teacherDTORequest.getTeacherName() + "' .You have been successfully registered.");
     }
 
     public void sendSimpleMessage(String to, String subject, String text) {
@@ -128,11 +128,11 @@ public class IUserDetailService implements UserDetailsService {
         DecodedJWT decodedJWT = jwtUtils.validateToken(token);
         String username = jwtUtils.extractUsername(decodedJWT);
 
-        Teacher teacher = teacherRepository.findUserByEmail(username)
+        Teacher teacher = teacherService.findTeacherByEmail(username)
                 .orElseThrow(() -> new TokenNotFound("The teacher token " + username + " is invalid invalid."));
 
         teacher.setEnabled(true);
-        teacherRepository.save(teacher);
+        teacherService.saveTeacher(teacher);
         return new MessageResponse("Account successfully confirmed for " + username);
     }
 

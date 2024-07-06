@@ -9,6 +9,7 @@ import com.iread.backend.project.entity.Activity;
 import com.iread.backend.project.entity.Story;
 import com.iread.backend.project.entity.Student;
 import com.iread.backend.project.entity.StudentActivity;
+import com.iread.backend.project.exception.IncorrectAccessWordException;
 import com.iread.backend.project.exception.ResourceNotFoundException;
 import com.iread.backend.project.repository.ActivityRepository;
 import com.iread.backend.project.repository.StoryRepository;
@@ -28,33 +29,35 @@ public class StudentServiceImpl implements StudentService {
     private final StudentRepository studentRepository;
     private final StudentActivityRepository studentActivityRepository;
     private final StoryRepository storyRepository;
-    private final ActivityRepository activityRepository;
+    private final ActivityService activityService;
 
     @Transactional
     @Override
     public StudentDTOResponse registerStudent(StudentDTORequest request) {
+        Student student = Student.builder()
+                .nameStudent(request.getNameStudent())
+                .build();
+        studentRepository.save(student);
 
-        return StudentDTOResponse.builder()
-                .nameStudent(request.getNameStudent()).build();
+        return new StudentDTOResponse(student.getNameStudent());
     }
 
+    @Transactional
+    @Override
     public StoryDTOResponse accessStory(AccessStoryDTORequest accessStoryDTORequest) {
         Story story = storyRepository.findStoryByAccessWord(accessStoryDTORequest.getAccessWord());
         if (story != null) {
-            return new StoryDTOResponse(story.getId(), story.getAccessWord(), story.getActive());
+            return new StoryDTOResponse(story.getTitle(), story.getAccessWord(), story.getActive());
         } else {
-            throw new IllegalStateException("No se puede acceder a la historia.");
+            throw new IncorrectAccessWordException("No se puede acceder a la historia.");
         }
     }
 
     @Transactional
     @Override
     public StudentActivity completeActivity(Long studentId, StudentActivityDTORequest studentActiv, Long activityId) {
-        Student student = studentRepository.findById(studentId)
-                .orElseThrow(() -> new ResourceNotFoundException("Student not found with id: " + studentId));
-
-        Activity activity = activityRepository.findById(activityId)
-                .orElseThrow(() -> new ResourceNotFoundException("Activity not found with id: " + studentId));
+        Student student = findStudentById(studentId);
+        Activity activity = activityService.findActivity(activityId);
 
         StudentActivity studentActivity = StudentActivity.builder()
                 .correctAnswer(studentActiv.getCorrectAnswer())
@@ -64,6 +67,11 @@ public class StudentServiceImpl implements StudentService {
                 .build();
 
         return studentActivityRepository.save(studentActivity);
+    }
+
+    private Student findStudentById(Long studentId) {
+        return studentRepository.findById(studentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found with id: " + studentId));
     }
 
 }

@@ -104,4 +104,11 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         return buildErrorResponse(exception, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(IncorrectAccessWordException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public ResponseEntity<ErrorMessage> handleIncorrectAccessWordException(IncorrectAccessWordException exception) {
+        logger.error("ResourceNotFoundException: {}", exception.getMessage(), exception);
+        return buildErrorResponse(exception, HttpStatus.NOT_FOUND);
+    }
+
 }

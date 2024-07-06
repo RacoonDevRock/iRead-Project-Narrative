@@ -24,18 +24,14 @@ public class Story {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
-    @Size(min = 10, max = 25)
     private String title;
 
-    @Column(name = "date_creation", nullable = false)
+    @Column(name = "date_creation")
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDateTime dateCreation;
 
-    @Column(name = "access_word", nullable = false, unique = true)
-    @Size(min = 5, max = 15)
+    @Column(name = "access_word")
     private String accessWord;
 
     private Boolean active;

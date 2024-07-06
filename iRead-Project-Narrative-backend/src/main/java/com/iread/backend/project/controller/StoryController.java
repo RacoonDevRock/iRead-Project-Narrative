@@ -2,10 +2,10 @@ package com.iread.backend.project.controller;
 
 import com.iread.backend.project.controller.request.ActivityDTORequest;
 import com.iread.backend.project.controller.request.StoryDTORequest;
+import com.iread.backend.project.controller.response.AssignDTOResponse;
 import com.iread.backend.project.controller.response.StoryDTOResponse;
 import com.iread.backend.project.entity.Activity;
-import com.iread.backend.project.entity.Story;
-import com.iread.backend.project.service.impl.StoryServiceImpl;
+import com.iread.backend.project.service.StoryService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -22,46 +22,46 @@ import java.util.Map;
 @AllArgsConstructor
 public class StoryController {
 
-    private final StoryServiceImpl storyServiceImpl;
+    private final StoryService storyService;
 
-    @PostMapping("/createStory/{teacherId}")
+    @PostMapping("/createStory")
     @SecurityRequirement(name = "Bearer Authentication")
-    public ResponseEntity<StoryDTOResponse> createStory(@PathVariable Long teacherId, @RequestBody StoryDTORequest storyDTORequest) {
-        StoryDTOResponse createdStory = storyServiceImpl.createStoryForTeacher(teacherId, storyDTORequest);
+    public ResponseEntity<StoryDTOResponse> createStory(@RequestBody StoryDTORequest storyDTORequest) {
+        StoryDTOResponse createdStory = storyService.createStoryForTeacher(storyDTORequest);
         return new ResponseEntity<>(createdStory, HttpStatus.CREATED);
     }
 
     @PutMapping("/{storyId}/activity")
     @SecurityRequirement(name = "Bearer Authentication")
-    public ResponseEntity<StoryDTOResponse> assignActivityToStory(@PathVariable Long storyId, @RequestBody ActivityDTORequest activityDetails) {
-        StoryDTOResponse updatedStory = storyServiceImpl.assignActivityToStory(storyId, activityDetails);
+    public ResponseEntity<AssignDTOResponse> assignActivityToStory(@PathVariable Long storyId, @RequestBody ActivityDTORequest activityDetails) {
+        AssignDTOResponse updatedStory = storyService.assignActivityToStory(storyId, activityDetails);
         return ResponseEntity.ok(updatedStory);
     }
 
-    @GetMapping("/byTeacher/{teacherId}")
+    @GetMapping("/byTeacher")
     @SecurityRequirement(name = "Bearer Authentication")
-    public ResponseEntity<List<StoryDTOResponse>> getStoriesByTeacherId(@PathVariable Long teacherId) {
-        List<StoryDTOResponse> storyDTOResponses = storyServiceImpl.findAllStoriesByTeacherId(teacherId);
+    public ResponseEntity<List<StoryDTOResponse>> getStoriesByTeacherId() {
+        List<StoryDTOResponse> storyDTOResponses = storyService.findAllStoriesByTeacherId();
         return ResponseEntity.ok(storyDTOResponses);
     }
 
     @PutMapping("/activate/{storyId}")
     @SecurityRequirement(name = "Bearer Authentication")
     public String activateStory(@PathVariable Long storyId) {
-        return storyServiceImpl.activateStory(storyId);
+        return storyService.activateStory(storyId);
     }
 
     //trae la actividad al niño: publicEndpoint
     @GetMapping("/{storyId}/activity")
     public ResponseEntity<Activity> getActivityByStoryId(@PathVariable Long storyId) {
-        Activity activity = storyServiceImpl.getActivityByStoryId(storyId);
+        Activity activity = storyService.getActivityByStoryId(storyId);
         return ResponseEntity.ok(activity);
     }
 
     @PutMapping("/deactivate/{storyId}")
     @SecurityRequirement(name = "Bearer Authentication")
     public ResponseEntity<Map<String, Object>> deactivateStory(@PathVariable Long storyId) {
-        Map<String, Object> response = storyServiceImpl.deactivateStory(storyId);
+        Map<String, Object> response = storyService.deactivateStory(storyId);
         return ResponseEntity.ok(response);
     }
 }

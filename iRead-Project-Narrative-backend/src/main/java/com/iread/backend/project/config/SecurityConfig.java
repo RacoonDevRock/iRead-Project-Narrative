@@ -1,7 +1,7 @@
 package com.iread.backend.project.config;
 
-import com.iread.backend.project.config.service.IUserDetailService;
 import com.iread.backend.project.config.jwt.JwtFilter;
+import com.iread.backend.project.config.service.IUserDetailService;
 import com.iread.backend.project.config.util.JwtUtils;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -48,7 +48,7 @@ public class SecurityConfig {
                 new AntPathRequestMatcher("/api/auth/**"),
                 new AntPathRequestMatcher("/api/students/**"),
                 new AntPathRequestMatcher("/api/stories/{storyId}/activity"),
-                new AntPathRequestMatcher("/api/auth/confirm?token="),
+                new AntPathRequestMatcher("/api/auth/confirmation?token="),
                 new AntPathRequestMatcher("/api/activities/**"),
                 new AntPathRequestMatcher("/v3/api-docs/**"),
                 new AntPathRequestMatcher("/swagger-ui/**"),

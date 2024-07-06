@@ -14,7 +14,7 @@ import java.io.IOException;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class WebConfig implements Filter {
 
-    @Value("${baseUrl}")
+    @Value("${url.client.side}")
     private String baseUrl;
 
     @Override

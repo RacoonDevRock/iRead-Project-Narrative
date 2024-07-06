@@ -15,8 +15,4 @@ public interface TeacherRepository extends JpaRepository<Teacher, Long> {
 
     Teacher findTeacherById(Long teacherId);
 
-    @Modifying
-    @Query("UPDATE Teacher t SET t.enabled = true WHERE t.email = :email")
-    int enableUser(String email);
-
 }

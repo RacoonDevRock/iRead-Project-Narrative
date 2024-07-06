@@ -25,15 +25,12 @@ public class Teacher {
     private Long id;
 
     @Column(name = "teacher_name", nullable = false)
-    @Size(max = 25)
     private String teacherName;
 
     @Column(name = "teacher_surname", nullable = false)
-    @Size(max = 25)
     private String teacherSurname;
 
     @Column(nullable = false, unique = true)
-    @Size(max = 40)
     private String email;
 
     @Column(name = "password", nullable = false)

@@ -11,5 +11,5 @@ public interface StoryRepository extends JpaRepository<Story,Long> {
 
     Story findStoryByAccessWord(String accessWord);
 
-    List<Story> findAllStoriesByTeacherId(Long id);
+    List<Story> findAllStoriesByTeacherEmail(String email);
 }
