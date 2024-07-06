@@ -6,6 +6,8 @@ services:
     image: guillermopalacios/iread-backend-app
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://bd:3306/iread_db
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=129837465lg
       - URL_FRONT=http://localhost:4200
     ports:
       - "8089:8080"
