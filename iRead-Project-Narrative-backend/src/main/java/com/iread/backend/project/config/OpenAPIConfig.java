@@ -30,17 +30,6 @@ public class OpenAPIConfig {
                         .contact(contact)
                         .description("This API sets out endpoints for handling requests.")
                         .termsOfService("https://www.google.com/")
-                        .license(mitLicense))
-                .components(new Components()
-                        .addSecuritySchemes("Bearer Authentication", createAPIKeyScheme())
-                );
+                        .license(mitLicense));
     }
-
-    private SecurityScheme createAPIKeyScheme() {
-        return new SecurityScheme()
-                .type(SecurityScheme.Type.HTTP)
-                .bearerFormat("JWT")
-                .scheme("bearer");
-    }
-
 }

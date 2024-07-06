@@ -1,11 +1,11 @@
 package com.iread.backend.project.controller;
 
-import com.iread.backend.project.controller.request.AuthenticationDTORequest;
-import com.iread.backend.project.controller.request.TeacherDTO;
+import com.iread.backend.project.config.service.IUserDetailService;
+import com.iread.backend.project.controller.request.LoginDTORequest;
 import com.iread.backend.project.controller.request.TeacherDTORequest;
-import com.iread.backend.project.controller.response.TokenDTOResponse;
-import com.iread.backend.project.registration.RegistrationService;
-import com.iread.backend.project.service.TeacherService;
+import com.iread.backend.project.controller.response.LoginDTOResponse;
+import com.iread.backend.project.controller.response.MessageResponse;
+import com.iread.backend.project.controller.response.SignUpDTOResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -17,23 +17,21 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Authentication", description = "Authentication management APIs")
 @AllArgsConstructor
 public class AuthController {
-
-    private final RegistrationService registrationService;
-    private final TeacherService teacherService;
+    private final IUserDetailService userService;
 
     @PostMapping("/register")
-    public ResponseEntity<TeacherDTO> register(@Valid @RequestBody TeacherDTORequest request){
-        return ResponseEntity.ok(registrationService.register(request));
+    public ResponseEntity<SignUpDTOResponse> register(@Valid @RequestBody TeacherDTORequest request){
+        return ResponseEntity.ok(userService.createUser(request));
     }
 
     @GetMapping(path = "/confirmation")
-    public String confirm(@RequestParam("token") String token) {
-        return registrationService.confirmToken(token);
+    public MessageResponse confirm(@RequestParam("token") String token) {
+        return userService.confirmAccount(token);
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<TokenDTOResponse> authenticate(@Valid @RequestBody AuthenticationDTORequest request){
-        return ResponseEntity.ok(teacherService.authenticate(request));
+    public ResponseEntity<LoginDTOResponse> authenticate(@Valid @RequestBody LoginDTORequest request){
+        return ResponseEntity.ok(userService.loginUser(request));
     }
 
 }
