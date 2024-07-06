@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Image Back-End CI
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push Discovery Server image
+      - name: Build and push Backend iRead image
         uses: docker/build-push-action@v3
         with:
           context: ./iRead-Project-Narrative-backend
