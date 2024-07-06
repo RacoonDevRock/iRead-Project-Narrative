@@ -3,7 +3,7 @@ name: Docker Image Back-End CI
 on:
   push:
     branches:
-      - deploy
+      - main
     paths:
       - 'iRead-Project-Narrative-backend/**'
       - '.github/workflows/docker-back.yml'
