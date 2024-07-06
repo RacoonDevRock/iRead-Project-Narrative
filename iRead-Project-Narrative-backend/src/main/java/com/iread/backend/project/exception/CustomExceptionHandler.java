@@ -75,4 +75,12 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         logger.error("Unhandled exception: {}", exception.getMessage(), exception);
         return buildErrorResponse(exception, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @ExceptionHandler(EmailNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<ErrorMessage> handleEmailNotFoundException(EmailNotFoundException exception) {
+        logger.error("ResourceNotFoundException: {}", exception.getMessage(), exception);
+        return buildErrorResponse(exception, HttpStatus.NOT_FOUND);
+    }
+
 }
