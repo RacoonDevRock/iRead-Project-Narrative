@@ -1,6 +1,6 @@
 package com.iread.backend.project.mapper;
 
-import com.iread.backend.project.dto.StoryDTO;
+import com.iread.backend.project.controller.response.StoryDTOResponse;
 import com.iread.backend.project.entity.Story;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
@@ -14,18 +14,16 @@ public class StoryMapper {
         this.modelMapper = modelMapper;
     }
 
-    public StoryDTO mapToDTO(Story story) {
-        return StoryDTO.builder()
-                .id(story.getId())
-                .title(story.getTitle())
-                .dateCreation(story.getDateCreation())
+    public StoryDTOResponse mapToDTO(Story story) {
+        return StoryDTOResponse.builder()
+                .storyId(story.getId())
                 .accessWord(story.getAccessWord())
-                .imgPreview(story.getActivity().getImgPreview())
+                .active(story.getActive())
                 .build();
     }
 
-    public Story mapToModel(StoryDTO storyDTO) {
-        return modelMapper.map(storyDTO, Story.class);
+    public Story mapToModel(StoryDTOResponse storyDTOResponse) {
+        return modelMapper.map(storyDTOResponse, Story.class);
     }
 
 }

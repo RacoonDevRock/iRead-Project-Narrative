@@ -1,7 +1,8 @@
 package com.iread.backend.project.registration;
 
-import com.iread.backend.project.dto.TeacherDTO;
-import com.iread.backend.project.dto.TeacherDTORequest;
+import com.iread.backend.project.controller.response.TokenDTOResponse;
+import com.iread.backend.project.controller.request.TeacherDTO;
+import com.iread.backend.project.controller.request.TeacherDTORequest;
 import com.iread.backend.project.email.EmailSender;
 import com.iread.backend.project.entity.Teacher;
 import com.iread.backend.project.mapper.TeacherMapper;
@@ -35,7 +36,7 @@ public class RegistrationService {
                 request.getPassword()
         );
 
-        String token = teacherService.singUpUser(teacher);
+        TokenDTOResponse token = teacherService.singUpUser(teacher);
 
 //        String link = "https://iread-backend.onrender.com/api/auth/confirm?token=" + token; //Request o application properties
         String link = "http://localhost:8080/api/auth/confirm?token=" + token;

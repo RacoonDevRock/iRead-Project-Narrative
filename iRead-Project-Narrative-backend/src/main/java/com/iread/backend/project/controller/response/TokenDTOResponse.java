@@ -1,4 +1,4 @@
-package com.iread.backend.project.dto;
+package com.iread.backend.project.controller.response;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Builder;

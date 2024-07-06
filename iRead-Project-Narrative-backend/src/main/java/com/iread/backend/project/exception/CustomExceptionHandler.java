@@ -83,4 +83,11 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         return buildErrorResponse(exception, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(TeacherNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ResponseEntity<ErrorMessage> handleTeacherNotFoundException(TeacherNotFoundException exception) {
+        logger.error("ResourceNotFoundException: {}", exception.getMessage(), exception);
+        return buildErrorResponse(exception, HttpStatus.NOT_FOUND);
+    }
+
 }

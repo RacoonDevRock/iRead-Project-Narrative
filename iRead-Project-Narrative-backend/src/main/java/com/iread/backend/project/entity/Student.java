@@ -19,7 +19,6 @@ public class Student {
     private Long id;
 
     @Column(name = "name_student", nullable = false)
-    @Size(min = 5, max = 30)
     private String nameStudent;
 
     @OneToOne(mappedBy = "student")

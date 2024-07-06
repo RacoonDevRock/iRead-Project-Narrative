@@ -1,7 +1,7 @@
 package com.iread.backend.project.mapper;
 
-import com.iread.backend.project.dto.TeacherDTO;
-import com.iread.backend.project.dto.TeacherDTORequest;
+import com.iread.backend.project.controller.request.TeacherDTO;
+import com.iread.backend.project.controller.request.TeacherDTORequest;
 import com.iread.backend.project.entity.Teacher;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;

@@ -8,6 +8,8 @@ import java.util.List;
 
 @Repository
 public interface StoryRepository extends JpaRepository<Story,Long> {
+
     Story findStoryByAccessWord(String accessWord);
+
     List<Story> findAllStoriesByTeacherId(Long id);
 }

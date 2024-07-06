@@ -1,11 +1,17 @@
 package com.iread.backend.project.service;
 
-import com.iread.backend.project.dto.AuthDTO;
-import com.iread.backend.project.dto.AuthenticationDTORequest;
+import com.iread.backend.project.controller.request.AuthenticationDTORequest;
+import com.iread.backend.project.controller.response.TokenDTOResponse;
 import com.iread.backend.project.entity.Teacher;
 
+import java.util.Optional;
+
 public interface TeacherService {
-    String singUpUser(Teacher user);
-    AuthDTO authenticate(AuthenticationDTORequest request);
+    Optional<Teacher> findUserByEmail(String email);
+
+    TokenDTOResponse singUpUser(Teacher user);
+
+    TokenDTOResponse authenticate(AuthenticationDTORequest request);
+
     int enableUser(String email);
 }

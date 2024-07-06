@@ -18,7 +18,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "teacher")
+@Table(name = "teacher", indexes = {
+        @Index(name = "idx_email", columnList = "email", unique = true)
+})
 public class Teacher implements UserDetails {
 
     @Id
