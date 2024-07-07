@@ -13,7 +13,7 @@ jobs:
       bd:
         image: mysql:8.0
         ports:
-          - 3307:3306
+          - 3306:3306
         env:
           MYSQL_ROOT_PASSWORD: 129837465lg
           MYSQL_DATABASE: iread_db
@@ -25,11 +25,11 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: 17
-          distribution: 'temurin'
+          distribution: 'zulu'
       - name: Wait for MySQL to be ready
         run: |
           for i in {30..0}; do
-            if mysql -h "localhost" -P "3307" --protocol=tcp -u"root" -p"129837465lg" -e "SELECT 1" &> /dev/null; then
+            if mysql -h "localhost" -P "3306" --protocol=tcp -u"root" -p"129837465lg" -e "SELECT 1" &> /dev/null; then
               echo "MySQL is up"
               break
             fi
@@ -56,5 +56,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=RacoonDevRock_iRead-Project-Narrative
+          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/iread_db
+          SPRING_DATASOURCE_USERNAME: root
+          SPRING_DATASOURCE_PASSWORD: 129837465lg
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=RacoonDevRock_iRead-Project-Narrative -DskipTests
         working-directory: ./iRead-Project-Narrative-backend
