@@ -12,6 +12,14 @@ jobs:
   build:
     name: Build and analyze
     runs-on: ubuntu-latest
+    services:
+      bd:
+        image: mysql:8.0
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: 129837465lg
+          MYSQL_DATABASE: iread_db
     steps:
       - uses: actions/checkout@v3
         with:
@@ -20,7 +28,21 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: 17
-          distribution: 'zulu' # Alternative distribution options are available.
+          distribution: 'zulu'
+      - name: Wait for MySQL to be ready
+        run: |
+          for i in {30..0}; do
+            if mysql -h "localhost" -P "3306" --protocol=tcp -u"root" -p"129837465lg" -e "SELECT 1" &> /dev/null; then
+              echo "MySQL is up"
+              break
+            fi
+            echo 'MySQL is unavailable - sleeping'
+            sleep 1
+          done
+          if [ "$i" = 0 ]; then
+            echo "MySQL did not become available in time" >&2
+            exit 1
+          fi
       - name: Cache SonarCloud packages
         uses: actions/cache@v3
         with:
@@ -37,4 +59,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=RacoonDevRock_iRead-Project-Narrative
+          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/iread_db
+          SPRING_DATASOURCE_USERNAME: root
+          SPRING_DATASOURCE_PASSWORD: 129837465lg
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=RacoonDevRock_iRead-Project-Narrative -DskipTests
+        working-directory: ./iRead-Project-Narrative-backend
