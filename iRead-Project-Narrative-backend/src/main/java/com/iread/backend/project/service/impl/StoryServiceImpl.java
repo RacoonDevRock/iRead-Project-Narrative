@@ -9,11 +9,9 @@ import com.iread.backend.project.entity.Story;
 import com.iread.backend.project.entity.StudentActivity;
 import com.iread.backend.project.entity.Teacher;
 import com.iread.backend.project.exception.ResourceNotFoundException;
-import com.iread.backend.project.exception.TeacherNotFoundException;
 import com.iread.backend.project.mapper.StoryMapper;
 import com.iread.backend.project.repository.ActivityRepository;
 import com.iread.backend.project.repository.StoryRepository;
-import com.iread.backend.project.repository.TeacherRepository;
 import com.iread.backend.project.service.StoryService;
 import com.iread.backend.project.service.TeacherService;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +21,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +35,8 @@ public class StoryServiceImpl implements StoryService {
     private final TeacherService teacherService;
     private final StoryMapper storyMapper;
     private final ActivityRepository activityRepository;
+
+    private static final String STORY_NOT_FOUND_MESSAGE = "Story not found with id: ";
 
     @Transactional
     @Override
@@ -64,7 +63,7 @@ public class StoryServiceImpl implements StoryService {
     @Override
     public AssignDTOResponse assignActivityToStory(Long storyId, ActivityDTORequest activityDetails) throws ResourceNotFoundException {
         Story story = storyRepository.findById(storyId)
-                .orElseThrow(() -> new ResourceNotFoundException("Story not found with id: " + storyId));
+                .orElseThrow(() -> new ResourceNotFoundException(STORY_NOT_FOUND_MESSAGE + storyId));
 
         Activity activity = Activity.builder()
                 .jsonConverted(activityDetails.getJsonConverted())
@@ -90,14 +89,14 @@ public class StoryServiceImpl implements StoryService {
 
         return stories.stream()
                 .map(storyMapper::mapToDTO)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Transactional
     @Override
     public String activateStory(Long storyId) throws ResourceNotFoundException {
         Story story = storyRepository.findById(storyId)
-                .orElseThrow(() -> new ResourceNotFoundException("Story not found with id: " + storyId));
+                .orElseThrow(() -> new ResourceNotFoundException(STORY_NOT_FOUND_MESSAGE + storyId));
 
         story.setActive(true);
         storyRepository.save(story);
@@ -109,7 +108,7 @@ public class StoryServiceImpl implements StoryService {
     @Override
     public Activity getActivityByStoryId(Long storyId) throws ResourceNotFoundException {
         Story story = storyRepository.findById(storyId)
-                .orElseThrow(() -> new ResourceNotFoundException("Story not found with id: " + storyId));
+                .orElseThrow(() -> new ResourceNotFoundException(STORY_NOT_FOUND_MESSAGE + storyId));
 
         return story.getActivity();
     }
@@ -118,7 +117,7 @@ public class StoryServiceImpl implements StoryService {
     @Override
     public Map<String, Object> deactivateStory(Long storyId) throws ResourceNotFoundException {
         Story story = storyRepository.findById(storyId)
-                .orElseThrow(() -> new ResourceNotFoundException("Story not found with id: " + storyId));
+                .orElseThrow(() -> new ResourceNotFoundException(STORY_NOT_FOUND_MESSAGE + storyId));
 
         story.setActive(false);
         storyRepository.save(story);
