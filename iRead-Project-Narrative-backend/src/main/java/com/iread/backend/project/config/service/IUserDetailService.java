@@ -102,7 +102,7 @@ public class IUserDetailService implements UserDetailsService {
 
         Teacher teacherCreated = teacherService.saveTeacher(teacher);
 
-        SecurityContext securityContext = SecurityContextHolder.getContext();
+        SecurityContextHolder.getContext();
         Authentication authentication = new UsernamePasswordAuthenticationToken(teacherCreated.getEmail(),
                 teacherCreated.getPassword(), AuthorityUtils.createAuthorityList(teacherCreated.getRole().getRoleEnum().name()));
         String accessToken = jwtUtils.createToken(authentication);

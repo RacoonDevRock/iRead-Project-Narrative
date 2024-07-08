@@ -1,6 +1,5 @@
 package com.iread.backend.project.controller.request;
 
-import com.iread.backend.project.entity.StudentActivity;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
