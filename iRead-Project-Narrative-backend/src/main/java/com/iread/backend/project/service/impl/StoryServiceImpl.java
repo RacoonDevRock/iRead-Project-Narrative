@@ -71,7 +71,6 @@ public class StoryServiceImpl implements StoryService {
                 .story(story).build();
 
         activityRepository.save(activity);
-
         story.setActivity(activity);
         storyRepository.save(story);
 

@@ -77,35 +77,35 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(EmailNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<ErrorMessage> handleEmailNotFoundException(EmailNotFoundException exception) {
-        log.error("ResourceNotFoundException: {}", exception.getMessage(), exception);
+        log.error("EmailNotFoundException: {}", exception.getMessage(), exception);
         return buildErrorResponse(exception, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(TeacherNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<ErrorMessage> handleTeacherNotFoundException(TeacherNotFoundException exception) {
-        log.error("ResourceNotFoundException: {}", exception.getMessage(), exception);
+        log.error("TeacherNotFoundException: {}", exception.getMessage(), exception);
         return buildErrorResponse(exception, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(IncorrectCredentials.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ResponseEntity<ErrorMessage> handleIncorrectCredentialsException(IncorrectCredentials exception) {
-        log.error("ResourceNotFoundException: {}", exception.getMessage(), exception);
+        log.error("IncorrectCredentialsException: {}", exception.getMessage(), exception);
         return buildErrorResponse(exception, HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(TokenNotFound.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<ErrorMessage> handleTokenNotFoundException(TokenNotFound exception) {
-        log.error("ResourceNotFoundException: {}", exception.getMessage(), exception);
+        log.error("TokenNotFoundException: {}", exception.getMessage(), exception);
         return buildErrorResponse(exception, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(IncorrectAccessWordException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ResponseEntity<ErrorMessage> handleIncorrectAccessWordException(IncorrectAccessWordException exception) {
-        log.error("ResourceNotFoundException: {}", exception.getMessage(), exception);
+        log.error("IncorrectAccessWordException: {}", exception.getMessage(), exception);
         return buildErrorResponse(exception, HttpStatus.NOT_FOUND);
     }
 
