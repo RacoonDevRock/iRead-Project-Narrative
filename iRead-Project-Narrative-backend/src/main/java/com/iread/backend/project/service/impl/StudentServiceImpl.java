@@ -15,6 +15,7 @@ import com.iread.backend.project.repository.ActivityRepository;
 import com.iread.backend.project.repository.StoryRepository;
 import com.iread.backend.project.repository.StudentActivityRepository;
 import com.iread.backend.project.repository.StudentRepository;
+import com.iread.backend.project.service.ActivityService;
 import com.iread.backend.project.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
