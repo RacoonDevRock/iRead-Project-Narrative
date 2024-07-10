@@ -1,4 +1,4 @@
-package com.iread.backend.project.service.impl;
+package com.iread.backend.project.service;
 
 import com.iread.backend.project.entity.Activity;
 
